@@ -89,5 +89,10 @@ public class RoomReservation {  private long roomId;
         this.date = date;
     }
 
+    @Override
+    public String toString() {
+        return "RoomReservation{" + "roomId=" + roomId + ", guestId=" + guestId + ", roomName=" + roomName + ", roomNumber=" + roomNumber + ", firstName=" + firstName + ", lastName=" + lastName + ", date=" + date + '}';
+    }
+
     
 }

@@ -37,7 +37,7 @@ public class Guest {
    @Column(name="STATE")
    private String STATE;
    @Column(name="PHONE_NUMBER")
-   private Integer PHONE_NUMBER;
+   private String PHONE_NUMBER;
 
     public long getGUEST_ID() {
         return GUEST_ID;
@@ -95,11 +95,11 @@ public class Guest {
         this.STATE = STATE;
     }
 
-    public Integer getPHONE_NUMBER() {
+    public String getPHONE_NUMBER() {
         return PHONE_NUMBER;
     }
 
-    public void setPHONE_NUMBER(Integer PHONE_NUMBER) {
+    public void setPHONE_NUMBER(String PHONE_NUMBER) {
         this.PHONE_NUMBER = PHONE_NUMBER;
     }
    

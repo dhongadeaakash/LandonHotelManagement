@@ -15,7 +15,18 @@ import javax.persistence.*;
 @Entity
 @Table(name = "RESERVATION")
 public class Reservation {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "RESERVATION_ID")
+    private long RESERVATION_ID;
+    @Column(name = "Room_ID")
+    private long ROOM_ID;
+    @Column(name = "GUEST_ID")
+    private long GUEST_ID;
+    @Column(name = "RES_DATE")
+    private Date date;
+    
+    
     public long getRESERVATION_ID() {
         return RESERVATION_ID;
     }
@@ -41,22 +52,12 @@ public class Reservation {
     }
 
     public Date getRES_DATE() {
-        return RES_DATE;
+        return date;
     }
 
     public void setRES_DATE(Date RES_DATE) {
-        this.RES_DATE = RES_DATE;
+        this.date = RES_DATE;
     }
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "RESERVATION_ID")
-    private long RESERVATION_ID;
-    @Column(name = "Room_ID")
-    private long ROOM_ID;
-    @Column(name = "GUEST_ID")
-    private long GUEST_ID;
-    @Column(name = "RES_DATE")
-    private Date RES_DATE;
     
 }

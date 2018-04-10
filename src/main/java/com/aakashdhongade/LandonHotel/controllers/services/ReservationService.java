@@ -53,7 +53,7 @@ public class ReservationService {
        });
        
        reservationRepository.findByDate(new java.sql.Date(date.getTime())).forEach(reservation->{
-       
+       if(reservation!=null){
        Guest guest = guestRepository.findById(reservation.getGUEST_ID()).get();
        if(guest!=null)
        {
@@ -63,7 +63,7 @@ public class ReservationService {
            roomReservation.setLastName(guest.getLAST_NAME());
            roomReservation.setGuestId(guest.getGUEST_ID());
        }
-       });
+       }});
        List<RoomReservation> roomReservations = new ArrayList<>();
        for(Long roomID:roomReservationsMap.keySet())
        {

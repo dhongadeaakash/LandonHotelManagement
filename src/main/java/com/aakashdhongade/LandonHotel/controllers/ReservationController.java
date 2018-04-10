@@ -5,12 +5,14 @@
  */
 package com.aakashdhongade.LandonHotel.controllers;
 
+import com.aakashdhongade.LandonHotel.controllers.services.DateService;
 import com.aakashdhongade.LandonHotel.controllers.services.ReservationService;
 import com.aakashdhongade.LandonHotel.data.models.NewDate;
 import com.aakashdhongade.LandonHotel.viewClasses.RoomReservation;
 import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,12 +28,15 @@ public class ReservationController {
     
     @Autowired
     private ReservationService reservationService;
+    @Autowired
+    private DateService dateService;
     
     @RequestMapping(value = "/reservations",method=RequestMethod.GET)
-   public String getReservations(@RequestParam(value="date",required = false) String dateString )
+   public String getReservations(@RequestParam(value="date",required = false) String dateString, Model model )
    {
-       List<RoomReservation> roomReservations=reservationService.getReservationsForDate(dateString);
-       return  "reservations";
+       List<RoomReservation> roomReservationsList=reservationService.getReservationsForDate(dateString);
+       model.addAttribute(roomReservationsList);
+       return "reservations";
    }
    @RequestMapping(value = "/reservations",method=RequestMethod.POST)
    public String postReservations(@RequestBody NewDate newDate )

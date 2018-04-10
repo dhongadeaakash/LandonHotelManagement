@@ -27,7 +27,7 @@ public class Room {
     @Column(name = "NAME")
     private String NAME;
     @Column(name = "ROOM_NUMBER")
-    private Integer ROOM_NUMBER;
+    private String ROOM_NUMBER;
     @Column(name = "BED_INFO")
     private String BED_INFO;
 
@@ -47,11 +47,11 @@ public class Room {
         this.NAME = NAME;
     }
 
-    public Integer getROOM_NUMBER() {
+    public String getROOM_NUMBER() {
         return ROOM_NUMBER;
     }
 
-    public void setROOM_NUMBER(Integer ROOM_NUMBER) {
+    public void setROOM_NUMBER(String ROOM_NUMBER) {
         this.ROOM_NUMBER = ROOM_NUMBER;
     }
 
